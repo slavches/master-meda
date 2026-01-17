@@ -1,13 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ThemeContext } from '../App';
 
 const ProductsSection = () => {
   const { changeTheme } = useContext(ThemeContext);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // Статические данные — замените фото и описания на свои
+  // Статические данные — всё здесь, без backend
   const products = [
     {
+      id: 1,
       name: "Липовый мёд",
       description: "Светлый, нежный аромат, противовоспалительные свойства.",
       price: 500,
@@ -15,6 +17,7 @@ const ProductsSection = () => {
       theme: { primary: "#FFEB3B", secondary: "#FFA000" }
     },
     {
+      id: 2,
       name: "Гречишный мёд",
       description: "Тёмный, насыщенный вкус, высокое содержание железа.",
       price: 550,
@@ -22,6 +25,7 @@ const ProductsSection = () => {
       theme: { primary: "#D2691E", secondary: "#8B4513" }
     },
     {
+      id: 3,
       name: "Акациевый мёд",
       description: "Прозрачный, лёгкий, долго не кристаллизуется.",
       price: 600,
@@ -29,6 +33,7 @@ const ProductsSection = () => {
       theme: { primary: "#FFFF99", secondary: "#FFD700" }
     },
     {
+      id: 4,
       name: "Подсолнечниковый мёд",
       description: "Яркий золотистый цвет, насыщенный солнечный вкус.",
       price: 480,
@@ -36,6 +41,7 @@ const ProductsSection = () => {
       theme: { primary: "#FFCA28", secondary: "#FF6F00" }
     },
     {
+      id: 5,
       name: "Разнотравье",
       description: "Сбор с луговых трав, сбалансированный вкус.",
       price: 520,
@@ -43,6 +49,7 @@ const ProductsSection = () => {
       theme: { primary: "#C6FF00", secondary: "#64DD17" }
     },
     {
+      id: 6,
       name: "Кориандровый мёд",
       description: "Пряный аромат, бактерицидные свойства.",
       price: 650,
@@ -50,8 +57,6 @@ const ProductsSection = () => {
       theme: { primary: "#FF5722", secondary: "#D84315" }
     }
   ];
-
-  const [selectedProduct, setSelectedProduct] = React.useState(null);
 
   return (
     <section id="products" className="py-20 bg-amber-50">
@@ -61,26 +66,28 @@ const ProductsSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
         >
-          {products.map((product, i) => (
+          {products.map((product) => (
             <div
-              key={i}
+              key={product.id}
               className={`bg-white rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 ${
-                selectedProduct === i ? 'ring-4 ring-amber-500 shadow-2xl scale-105' : 'shadow-xl hover:scale-105'
+                selectedProduct === product.id 
+                  ? 'ring-4 ring-amber-500 shadow-2xl scale-105' 
+                  : 'shadow-xl hover:scale-105 hover:shadow-2xl'
               }`}
               onClick={() => {
                 changeTheme(product.theme);
-                setSelectedProduct(i);
+                setSelectedProduct(product.id);
               }}
             >
               <div className="h-64 overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
               </div>
               <div className="p-8 text-center">
