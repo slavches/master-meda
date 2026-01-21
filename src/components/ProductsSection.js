@@ -6,7 +6,7 @@ const ProductsSection = () => {
   const { changeTheme } = useContext(ThemeContext);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // Статические продукты — теперь они всегда видны
+  // Статические продукты — всегда отображаются
   const products = [
     {
       id: 1,
