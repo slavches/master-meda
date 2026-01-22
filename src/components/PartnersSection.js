@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const partners = [
-  "/images/partners/partner1.png",
+  "/images/partners/partner-x5logistic.png",
   "/images/partners/partner2.png",
   "/images/partners/partner3.png",
   "/images/partners/partner4.png",
