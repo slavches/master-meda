@@ -61,7 +61,7 @@ const HeroSection = () => {
           Мастер Мёда
         </h1>
         <p className="text-lg sm:text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-gray-800">
-          Натуральный мёд оптом от пасечников Алтайского края · Гарантия качества
+          Натуральный мёд оптом · Гарантия качества
         </p>
         <button
           onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
