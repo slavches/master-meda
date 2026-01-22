@@ -39,11 +39,14 @@ const Header = () => {
           </button>
 
           {/* Десктопное меню */}
-          <nav className="hidden md:flex space-x-8">
-            <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-amber-600 transition">О нас</button>
-            <button onClick={() => scrollToSection('products')} className="text-gray-700 hover:text-amber-600 transition">Продукция</button>
-            <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-amber-600 transition">Контакты</button>
-          </nav>
+            <nav className="hidden md:flex space-x-8">
+              <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-amber-600 transition">О нас</button>
+              <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-amber-600 transition">Услуги</button>
+              <button onClick={() => scrollToSection('products')} className="text-gray-700 hover:text-amber-600 transition">Продукция</button>
+              <button onClick={() => scrollToSection('partners')} className="text-gray-700 hover:text-amber-600 transition">Партнёры</button>
+              <button onClick={() => scrollToSection('clients')} className="text-gray-700 hover:text-amber-600 transition">Клиенты</button>
+              <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-amber-600 transition">Контакты</button>
+            </nav>
         </div>
 
         {/* Мобильное выпадающее меню */}

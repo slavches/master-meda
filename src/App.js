@@ -4,6 +4,9 @@ import axios from 'axios';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import ProductsSection from './components/ProductsSection';
+import PartnersSection from './components/PartnersSection';
+import ClientsSection from './components/ClientsSection';
+import ServicesSection from './components/ServicesSection';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -31,8 +34,8 @@ function App() {
       '#D2691E': 'from-orange-50 to-amber-100',
       '#FFFF99': 'from-yellow-50 to-lime-100',
       '#FFCA28': 'from-amber-50 to-yellow-100',
-      '#C6FF00': 'from-lime-50 to-yellow-100',
-      '#FF5722': 'from-orange-100 to-amber-100',
+      '#e2ff79': 'from-lime-50 to-yellow-100',
+      'rgb(255, 195, 85)': 'from-orange-100 to-amber-100',
     };
 
     const bgGradient = gradients[newTheme.primary] || 'from-amber-50 to-yellow-100';
@@ -47,14 +50,15 @@ function App() {
     document.documentElement.style.setProperty('--secondary', newTheme.secondary);
   };
 
-  return (
+    return (
     <ThemeContext.Provider value={{ changeTheme, theme }}>
-      <motion.div
-        className={`min-h-screen bg-gradient-to-br ${theme.bgGradient} transition-all duration-1000 ease-in-out`}
-      >
+      <motion.div className={`min-h-screen bg-gradient-to-br ${theme.bgGradient} transition-all duration-1000 ease-in-out`}>
         <Header />
         <HeroSection />
-        <ProductsSection products={products} />
+        <ProductsSection />
+        <ServicesSection />      {/* Новый */}
+        <PartnersSection />      {/* Новый */}
+        <ClientsSection />       {/* Новый */}
         <About />
         <Contact />
         <Footer />
