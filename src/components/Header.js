@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa'; // Иконки бургер и крестик
 
 const Header = () => {
-  // Функция плавного скролла наверх
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth' // ← ключевой параметр для плавности
-    });
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Функция скролла к секциям (если нужно)
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false); // Закрываем меню после клика
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsMenuOpen(false);
   };
 
   return (
@@ -24,22 +24,38 @@ const Header = () => {
             className="flex items-center focus:outline-none"
           >
             <img
-            src="/images/logo.png"
-            alt="Мастер Мёда"
-            className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto max-h-16 max-w-[180px] sm:max-w-[220px] md:max-w-[260px] object-contain transition-transform hover:scale-105"
-          />
+              src="/images/logo.png"
+              alt="Мастер Мёда"
+              className="h-10 sm:h-12 w-auto hover:opacity-80 transition-opacity"
+            />
           </button>
 
-          {/* Навигация */}
+          {/* Кнопка меню на мобильных */}
+          <button
+            className="md:hidden text-amber-800 text-2xl focus:outline-none"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+
+          {/* Десктопное меню */}
           <nav className="hidden md:flex space-x-8">
             <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-amber-600 transition">О нас</button>
             <button onClick={() => scrollToSection('products')} className="text-gray-700 hover:text-amber-600 transition">Продукция</button>
             <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-amber-600 transition">Контакты</button>
           </nav>
-
-          {/* На мобильных можно добавить кнопку меню */}
-          <div className="md:hidden text-gray-700 font-medium">Меню</div>
         </div>
+
+        {/* Мобильное выпадающее меню */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white shadow-lg">
+            <nav className="flex flex-col items-center py-4 space-y-4">
+              <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-amber-600 transition">О нас</button>
+              <button onClick={() => scrollToSection('products')} className="text-gray-700 hover:text-amber-600 transition">Продукция</button>
+              <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-amber-600 transition">Контакты</button>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );
