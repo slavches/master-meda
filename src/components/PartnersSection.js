@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const partners = [
   "/images/partners/partner-x5logistic.png",
-  "/images/partners/partner2.png",
+  "/images/partners/kit.png",
   "/images/partners/partner3.png",
   "/images/partners/partner4.png",
   "/images/partners/partner5.png",
