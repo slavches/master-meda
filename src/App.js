@@ -20,8 +20,9 @@ function App() {
     bgGradient: 'from-amber-50 to-yellow-100'
   });
 
+    // eslint-disable-next-line no-unused-vars
   const [products, setProducts] = useState([]);
-
+  
   useEffect(() => {
     axios.get('http://localhost:5000/api/products')
       .then(res => setProducts(res.data))
