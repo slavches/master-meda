@@ -24,10 +24,10 @@ const Header = () => {
             className="flex items-center focus:outline-none"
           >
             <img
-              src="/images/logo.png"
-              alt="Мастер Мёда"
-              className="h-10 sm:h-12 w-auto hover:opacity-80 transition-opacity"
-            />
+            src="/images/logo.png"
+            alt="Мастер Мёда"
+            className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto max-h-16 max-w-[180px] sm:max-w-[220px] md:max-w-[260px] object-contain transition-transform hover:scale-105"
+          />
           </button>
 
           {/* Навигация */}
