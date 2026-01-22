@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const partners = [
   "/images/partners/partner-x5logistic.png",
   "/images/partners/kit.png",
-  "/images/partners/gaybnic.png",
+  "/images/partners/bashmedgbybniic.png",
 ];
 
 const PartnersSection = () => {
